@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
         children: [
           // 가장 인기있는 영화
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
+            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -23,7 +23,7 @@ class HomePage extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
-                const SizedBox(height: 16),
+                const SizedBox(height: 8),
                 Container(
                   width: double.infinity,
                   height: 600,

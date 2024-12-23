@@ -11,7 +11,6 @@ class ListByPopularity extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 16),
           const Text(
             '인기순',
             style: TextStyle(
@@ -64,6 +63,7 @@ class ListByPopularity extends StatelessWidget {
               },
             ),
           ),
+          const SizedBox(height: 16),
         ],
       ),
     );

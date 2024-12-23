@@ -7,7 +7,6 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     // https://picsum.photos/200/300
     return Scaffold(
-      appBar: AppBar(),
       body: ListView(
         children: [
           // 가장 인기있는 영화
@@ -27,7 +26,7 @@ class HomePage extends StatelessWidget {
                 const SizedBox(height: 16),
                 Container(
                   width: double.infinity,
-                  height: 500,
+                  height: 600,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
                     image: const DecorationImage(

@@ -30,7 +30,7 @@ class ListByPopularity extends StatelessWidget {
               itemCount: 5,
               itemBuilder: (BuildContext context, int index) {
                 return SizedBox(
-                  width: 170,
+                  width: 160,
                   height: 180,
                   child: Stack(
                     alignment: Alignment.bottomRight,

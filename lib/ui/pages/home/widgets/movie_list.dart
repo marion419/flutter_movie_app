@@ -22,7 +22,7 @@ class MovieList extends StatelessWidget {
               color: Colors.white,
             ),
           ),
-          const SizedBox(height: 16),
+          const SizedBox(height: 8),
           SizedBox(
             width: double.infinity,
             height: 180,
@@ -31,11 +31,11 @@ class MovieList extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               itemCount: 5,
               separatorBuilder: (context, index) {
-                return const SizedBox(width: 8);
+                return const SizedBox(width: 10);
               },
               itemBuilder: (BuildContext context, int index) {
                 return Container(
-                  width: 140,
+                  width: 130,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
                     color: Colors.blueAccent,

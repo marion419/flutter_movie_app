@@ -12,16 +12,30 @@ class HomePage extends StatelessWidget {
           // 가장 인기있는 영화
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: Container(
-              width: double.infinity,
-              height: 500,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                image: const DecorationImage(
-                  image: AssetImage('assets/images/sample_poster.jpg'),
-                  fit: BoxFit.cover,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  '가장 인기있는',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                    color: Colors.white,
+                  ),
                 ),
-              ),
+                const SizedBox(height: 16),
+                Container(
+                  width: double.infinity,
+                  height: 500,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(20),
+                    image: const DecorationImage(
+                      image: AssetImage('assets/images/sample_poster.jpg'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+              ],
             ),
           ),
           // 현재 상영중인 영화 행

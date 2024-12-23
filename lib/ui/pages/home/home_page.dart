@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movie_app/ui/pages/home/widgets/movie_list.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -6,8 +7,7 @@ class HomePage extends StatelessWidget {
     // https://picsum.photos/200/300
     return Scaffold(
       appBar: AppBar(),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+      body: ListView(
         children: [
           // 가장 인기있는 영화
           Padding(
@@ -26,47 +26,9 @@ class HomePage extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           // 현재 상영중인 영화 행
-          Padding(
-            padding: const EdgeInsets.only(left: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const Text(
-                  '현재 상영중',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 16,
-                  ),
-                ),
-                const SizedBox(height: 10),
-                SizedBox(
-                  width: double.infinity,
-                  height: 180,
-                  child: ListView.separated(
-                    shrinkWrap: true,
-                    scrollDirection: Axis.horizontal,
-                    itemCount: 5,
-                    separatorBuilder: (context, index) {
-                      return const SizedBox(width: 8);
-                    },
-                    itemBuilder: (BuildContext context, int index) {
-                      return Container(
-                        width: 140,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Colors.blueAccent,
-                          image: const DecorationImage(
-                              image:
-                                  AssetImage('assets/images/sample_poster.jpg'),
-                              fit: BoxFit.cover),
-                        ),
-                      );
-                    },
-                  ),
-                ),
-              ],
-            ),
-          ),
+          const MovieList(title: '현재 상영중'),
+          const MovieList(title: '평점 높은 순'),
+          const MovieList(title: '개봉 예정'),
         ],
       ),
     );

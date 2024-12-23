@@ -24,6 +24,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
           ),
+          const SizedBox(height: 10),
           // 현재 상영중인 영화 행
           Padding(
             padding: const EdgeInsets.only(left: 20),
@@ -37,6 +38,7 @@ class HomePage extends StatelessWidget {
                     fontSize: 16,
                   ),
                 ),
+                const SizedBox(height: 10),
                 SizedBox(
                   width: double.infinity,
                   height: 180,

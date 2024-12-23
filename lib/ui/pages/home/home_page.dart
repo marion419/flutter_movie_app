@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
         children: [
           // 가장 인기있는 영화
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Container(
               width: double.infinity,
               height: 500,

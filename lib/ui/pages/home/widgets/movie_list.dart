@@ -9,18 +9,20 @@ class MovieList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 20),
+      padding: const EdgeInsets.only(left: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          const SizedBox(height: 16),
           Text(
             title,
             style: const TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: 16,
+              color: Colors.white,
             ),
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 16),
           SizedBox(
             width: double.infinity,
             height: 180,

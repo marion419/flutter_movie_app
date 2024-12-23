@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movie_app/ui/pages/home/widgets/list_by_popularity.dart';
 import 'package:flutter_movie_app/ui/pages/home/widgets/movie_list.dart';
 
 class HomePage extends StatelessWidget {
@@ -40,6 +41,7 @@ class HomePage extends StatelessWidget {
           ),
           // 현재 상영중인 영화 행
           const MovieList(title: '현재 상영중'),
+          const ListByPopularity(),
           const MovieList(title: '평점 높은 순'),
           const MovieList(title: '개봉 예정'),
         ],

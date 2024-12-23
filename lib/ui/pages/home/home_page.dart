@@ -25,32 +25,44 @@ class HomePage extends StatelessWidget {
             ),
           ),
           // 현재 상영중인 영화 행
-          const Text('현재 상영중'),
           Padding(
             padding: const EdgeInsets.only(left: 20),
-            child: SizedBox(
-              width: double.infinity,
-              height: 180,
-              child: ListView.separated(
-                shrinkWrap: true,
-                scrollDirection: Axis.horizontal,
-                itemCount: 5,
-                separatorBuilder: (context, index) {
-                  return const SizedBox(width: 8);
-                },
-                itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                    width: 140,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.blueAccent,
-                      image: const DecorationImage(
-                          image: AssetImage('assets/images/sample_poster.jpg'),
-                          fit: BoxFit.cover),
-                    ),
-                  );
-                },
-              ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
+                  '현재 상영중',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),
+                ),
+                SizedBox(
+                  width: double.infinity,
+                  height: 180,
+                  child: ListView.separated(
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    itemCount: 5,
+                    separatorBuilder: (context, index) {
+                      return const SizedBox(width: 8);
+                    },
+                    itemBuilder: (BuildContext context, int index) {
+                      return Container(
+                        width: 140,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.blueAccent,
+                          image: const DecorationImage(
+                              image:
+                                  AssetImage('assets/images/sample_poster.jpg'),
+                              fit: BoxFit.cover),
+                        ),
+                      );
+                    },
+                  ),
+                ),
+              ],
             ),
           ),
         ],

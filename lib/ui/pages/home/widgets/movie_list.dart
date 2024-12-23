@@ -13,6 +13,7 @@ class MovieList extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          const SizedBox(height: 16),
           Text(
             title,
             style: const TextStyle(
@@ -21,7 +22,7 @@ class MovieList extends StatelessWidget {
               color: Colors.white,
             ),
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 16),
           SizedBox(
             width: double.infinity,
             height: 180,

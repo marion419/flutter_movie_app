@@ -10,8 +10,8 @@ class Movie {
   int budget; // 예산
   int revenue; // 수익
   int runtime; // 러닝타임
-  var genres; // 장르 배열
-  var productionCompanies; // 배급사 배열
+  List<String> genres; // 장르 배열
+  List<String> productionCompanies; // 배급사 배열
 
   Movie(
     this.title,

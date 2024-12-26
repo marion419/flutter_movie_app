@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/ui/pages/home/widgets/list_by_popularity.dart';
-import 'package:flutter_movie_app/ui/pages/home/widgets/movie_list.dart';
+import 'package:flutter_movie_app/presentation/pages/home/widgets/list_by_popularity.dart';
+import 'package:flutter_movie_app/presentation/pages/home/widgets/movie_list.dart';
 
 class HomePage extends StatelessWidget {
   @override

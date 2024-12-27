@@ -12,22 +12,32 @@ class MovieDataSourceImpl implements MovieDataSource {
   @override
   Future<List<MovieDto>> findMovies(String path) async {
     final response = await _client.get(path,
-        queryParameters: <String, dynamic>{'page': 1, 'language': 'en-US'},
+        queryParameters: <String, dynamic>{
+          'page': 1,
+          'include_adult': false,
+          'include_video': false,
+        },
         options: Options(headers: <String, dynamic>{
           'Authorization': const String.fromEnvironment('Authorization'),
-          'accept': const String.fromEnvironment('accept'),
+          'Accept': const String.fromEnvironment('Accept'),
+          'User-Agent': 'ReadMe-API-Explorer',
         }));
 
     try {
       if (response.statusCode == 200) {
-        final dynamic movies = response.data['results'];
-        final list = jsonDecode(movies);
-        return List.from(list).map((e) => MovieDto.fromJson(e)).toList();
+        print('response found');
+        final movies = response.data['results'];
+        final iterable = List.from(movies).map((e) {
+          return MovieDto.fromJson(e);
+        });
+        return iterable.toList();
+        // final list = jsonDecode(movies);
+        // return List.from(list).map((e) => MovieDto.fromJson(e)).toList();
       }
-      return <MovieDto>[];
+      return [];
     } catch (e) {
       print(e);
-      return <MovieDto>[];
+      return [];
     }
   }
 }

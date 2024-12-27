@@ -1,4 +1,4 @@
-class Movie {
+class MovieDetail {
   String title; // 제목
   String overview; // 설명
   String posterPath; // 포스터 URL
@@ -13,7 +13,7 @@ class Movie {
   List<String> genres; // 장르 배열
   List<String> productionCompanies; // 배급사 배열
 
-  Movie(
+  MovieDetail(
     this.title,
     this.overview,
     this.posterPath,

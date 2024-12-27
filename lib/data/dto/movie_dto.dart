@@ -12,13 +12,13 @@ class MovieDto {
   MovieDto.fromJson(Map<String, dynamic> json)
       : this(
           title: json['title'],
-          posterPath: json['posterPath'],
+          posterPath: json['poster_path'],
           id: json['id'],
         );
 
   Map<String, dynamic> toJson() => {
         "title": title,
-        "posterPath": posterPath,
+        "poster-path": posterPath,
         "id": id,
       };
 }

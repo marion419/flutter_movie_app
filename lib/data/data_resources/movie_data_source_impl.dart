@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:dio/dio.dart';
 import 'package:flutter_movie_app/data/data_resources/movie_data_source.dart';
 import 'package:flutter_movie_app/data/dto/movie_dto.dart';
@@ -31,8 +29,6 @@ class MovieDataSourceImpl implements MovieDataSource {
           return MovieDto.fromJson(e);
         });
         return iterable.toList();
-        // final list = jsonDecode(movies);
-        // return List.from(list).map((e) => MovieDto.fromJson(e)).toList();
       }
       return [];
     } catch (e) {

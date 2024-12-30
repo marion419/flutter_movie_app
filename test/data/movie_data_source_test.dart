@@ -7,5 +7,6 @@ void main() {
     final result = await movieDataSource
         .findMovies('https://api.themoviedb.org/3/movie/now_playing');
     expect(result.isEmpty, false);
+    print(result[0].posterPath);
   });
 }

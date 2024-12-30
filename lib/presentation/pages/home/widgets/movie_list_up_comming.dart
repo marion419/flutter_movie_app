@@ -10,7 +10,7 @@ class MovieListUpComming extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.read(movieListViewModel.notifier).findMoviesUpComming();
+    //ref.read(movieListViewModel.notifier).findMoviesUpComming();
     final movieList = ref.watch(movieListViewModel);
 
     return Padding(

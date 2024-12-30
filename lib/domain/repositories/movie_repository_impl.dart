@@ -1,4 +1,3 @@
-import 'package:dio/dio.dart';
 import 'package:flutter_movie_app/data/data_resources/movie_data_source.dart';
 import 'package:flutter_movie_app/domain/entities/movie.dart';
 import 'package:flutter_movie_app/domain/repositories/movie_repository.dart';

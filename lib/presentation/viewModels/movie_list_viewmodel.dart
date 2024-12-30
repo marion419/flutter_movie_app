@@ -14,3 +14,7 @@ class MovieListViewmodel extends AutoDisposeNotifier<List<Movie>> {
     state = await ref.read(findMoviesUsecaseProvider).excute('path');
   }
 }
+
+final movieListViewModel =
+    AutoDisposeNotifierProvider<MovieListViewmodel, List<Movie>>(
+        () => MovieListViewmodel());

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/presentation/pages/home/widgets/movie_list_now_playing.dart';
+import 'package:flutter_movie_app/presentation/pages/home/widgets/movie_list_popularity.dart';
 import 'package:flutter_movie_app/presentation/pages/home/widgets/movie_list_top_rated.dart';
 import 'package:flutter_movie_app/presentation/pages/home/widgets/movie_list_up_comming.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -46,7 +47,7 @@ class HomePageState extends ConsumerState<HomePage> {
           ),
           // 현재 상영중인 영화 행
           const MovieListNowPlaying(title: '현재 상영중'),
-          //const MovieListByPopularity(),
+          const MovieListPopularity(),
           const MovieListTopRated(title: '평점 높은 순'),
           const MovieListUpComming(title: '개봉 예정'),
         ],

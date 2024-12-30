@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 // 가로 스크롤뷰 영화 리스트
-class ListByPopularity extends StatelessWidget {
-  const ListByPopularity({super.key});
+class MovieListByPopularity extends StatelessWidget {
+  const MovieListByPopularity({super.key});
 
   @override
   Widget build(BuildContext context) {

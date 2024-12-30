@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/presentation/providers.dart';
-import 'package:flutter_movie_app/presentation/viewModels/movie_list_viewmodel.dart';
+import 'package:flutter_movie_app/presentation/viewModels/now_playing_viewmodel.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // 가로 스크롤뷰 영화 리스트
@@ -11,8 +10,8 @@ class MovieListNowPlaying extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.read(movieListViewModel.notifier).findMoviesNowPlaying();
-    final movieList = ref.watch(movieListViewModel);
+    ref.read(nowPlayingViewModel.notifier).findMoviesNowPlaying();
+    final movieList = ref.watch(nowPlayingViewModel);
 
     return Padding(
       padding: const EdgeInsets.only(left: 10),

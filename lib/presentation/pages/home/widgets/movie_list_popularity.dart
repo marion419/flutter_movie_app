@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movie_app/presentation/viewModels/popular_viewmodel.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // 가로 스크롤뷰 영화 리스트
-class MovieListByPopularity extends StatelessWidget {
-  const MovieListByPopularity({super.key});
+class MovieListPopularity extends ConsumerWidget {
+  const MovieListPopularity({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.read(popularViewModel.notifier).findMoviesPopular();
+    final movieList = ref.watch(popularViewModel);
+
     return Padding(
       padding: const EdgeInsets.only(left: 10),
       child: Column(
@@ -26,7 +31,7 @@ class MovieListByPopularity extends StatelessWidget {
             child: ListView.builder(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
-              itemCount: 5,
+              itemCount: movieList.length,
               itemBuilder: (BuildContext context, int index) {
                 return SizedBox(
                   width: 160,
@@ -39,10 +44,10 @@ class MovieListByPopularity extends StatelessWidget {
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           color: Colors.blueAccent,
-                          image: const DecorationImage(
-                              image:
-                                  AssetImage('assets/images/sample_poster.jpg'),
-                              fit: BoxFit.cover),
+                          image: DecorationImage(
+                            image: NetworkImage(movieList[index].posterPath),
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
                       Positioned(

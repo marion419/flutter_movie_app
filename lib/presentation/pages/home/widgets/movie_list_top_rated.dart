@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/presentation/viewModels/movie_list_viewmodel.dart';
+import 'package:flutter_movie_app/presentation/viewModels/top_rated_viewmodel.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // 가로 스크롤뷰 영화 리스트
@@ -10,8 +10,8 @@ class MovieListTopRated extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    //ref.read(movieListViewModel.notifier).findMoviesTopRated();
-    final movieList = ref.watch(movieListViewModel);
+    ref.read(topRatedViewmodel.notifier).findMoviesTopRated();
+    final movieList = ref.watch(topRatedViewmodel);
 
     return Padding(
       padding: const EdgeInsets.only(left: 10),

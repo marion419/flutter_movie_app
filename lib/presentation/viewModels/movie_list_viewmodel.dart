@@ -3,50 +3,29 @@ import 'package:flutter_movie_app/domain/entities/movie.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_movie_app/presentation/providers.dart';
 
-class Movies {
-  List<Movie> nowPlaying;
-  List<Movie> popular;
-  List<Movie> topRated;
-  List<Movie> upComming;
-  Movies(
-    this.nowPlaying,
-    this.popular,
-    this.topRated,
-    this.upComming,
-  );
-}
-
-class MovieListViewmodel extends AutoDisposeNotifier<Movies> {
+class MovieListViewmodel extends AutoDisposeNotifier<List<Movie>> {
   @override
-  Movies build() {
-    return Movies([], [], [], []);
+  List<Movie> build() {
+    return [];
   }
 
   Future<void> findMoviesNowPlaying() async {
-    state.nowPlaying = await ref
-        .read(findMoviesUsecaseProvider)
-        .excute('https://api.themoviedb.org/3/movie/now_playing');
+    state = await ref.read(findMoviesUsecaseProvider).excuteNowPlaying();
   }
 
   Future<void> findMoviesPopular() async {
-    state.popular = await ref
-        .read(findMoviesUsecaseProvider)
-        .excute('https://api.themoviedb.org/3/movie/popular');
+    state = await ref.read(findMoviesUsecaseProvider).excutePopluar();
   }
 
   Future<void> findMoviesTopRated() async {
-    state.topRated = await ref
-        .read(findMoviesUsecaseProvider)
-        .excute('https://api.themoviedb.org/3/movie/top_rated');
+    state = await ref.read(findMoviesUsecaseProvider).excuteTopRated();
   }
 
   Future<void> findMoviesUpComming() async {
-    state.upComming = await ref
-        .read(findMoviesUsecaseProvider)
-        .excute('https://api.themoviedb.org/3/movie/up_comming');
+    state = await ref.read(findMoviesUsecaseProvider).excuteUpComming();
   }
 }
 
 final movieListViewModel =
-    AutoDisposeNotifierProvider<MovieListViewmodel, Movies>(
+    AutoDisposeNotifierProvider<MovieListViewmodel, List<Movie>>(
         () => MovieListViewmodel());

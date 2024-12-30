@@ -5,7 +5,23 @@ class FindMoviesUsecase {
   final MovieRepository _movieRepository;
   FindMoviesUsecase(this._movieRepository);
 
-  Future<List<Movie>> excute(String path) async {
-    return await _movieRepository.findMovies(path);
+  Future<List<Movie>> excuteNowPlaying() async {
+    return await _movieRepository
+        .findMovies('https://api.themoviedb.org/3/movie/now_playing');
+  }
+
+  Future<List<Movie>> excutePopluar() async {
+    return await _movieRepository
+        .findMovies('https://api.themoviedb.org/3/movie/popular');
+  }
+
+  Future<List<Movie>> excuteTopRated() async {
+    return await _movieRepository
+        .findMovies('https://api.themoviedb.org/3/movie/top_rated');
+  }
+
+  Future<List<Movie>> excuteUpComming() async {
+    return await _movieRepository
+        .findMovies('https://api.themoviedb.org/3/movie/up_comming');
   }
 }

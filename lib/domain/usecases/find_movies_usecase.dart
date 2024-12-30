@@ -20,7 +20,7 @@ class FindMoviesUsecase {
         .findMovies('https://api.themoviedb.org/3/movie/top_rated');
   }
 
-  Future<List<Movie>> excuteUpComming() async {
+  Future<List<Movie>> excuteUpComing() async {
     return await _movieRepository
         .findMovies('https://api.themoviedb.org/3/movie/up_comming');
   }

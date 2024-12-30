@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movie_app/presentation/viewModels/movie_list_viewmodel.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // 가로 스크롤뷰 영화 리스트
-class MovieList extends StatelessWidget {
+class MovieList extends ConsumerWidget {
   const MovieList({super.key, required this.title});
 
   final String title;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    final viewModel = ref.read(movieListViewModel.notifier);
+    viewModel.findMoviesNowPlaying();
+    final array = ref.watch(movieListViewModel);
+
     return Padding(
       padding: const EdgeInsets.only(left: 10),
       child: Column(
@@ -28,7 +34,7 @@ class MovieList extends StatelessWidget {
             child: ListView.separated(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
-              itemCount: 5,
+              itemCount: array.length,
               separatorBuilder: (context, index) {
                 return const SizedBox(width: 10);
               },
@@ -38,9 +44,10 @@ class MovieList extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
                     color: Colors.blueAccent,
-                    image: const DecorationImage(
-                        image: AssetImage('assets/images/sample_poster.jpg'),
-                        fit: BoxFit.cover),
+                    image: DecorationImage(
+                      image: NetworkImage(array[index].posterPath),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 );
               },

@@ -11,7 +11,7 @@ class MovieListNowPlaying extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.read(movieListViewModel.notifier).findMoviesNowPlaying();
+    //ref.read(movieListViewModel.notifier).findMoviesNowPlaying();
     final movieList = ref.watch(movieListViewModel);
 
     return Padding(

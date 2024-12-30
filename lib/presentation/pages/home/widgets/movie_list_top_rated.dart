@@ -10,7 +10,7 @@ class MovieListTopRated extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.read(movieListViewModel.notifier).findMoviesTopRated();
+    //ref.read(movieListViewModel.notifier).findMoviesTopRated();
     final movieList = ref.watch(movieListViewModel);
 
     return Padding(

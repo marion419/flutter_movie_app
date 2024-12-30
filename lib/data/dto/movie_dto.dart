@@ -7,7 +7,9 @@ class MovieDto {
     required this.title,
     required this.posterPath,
     required this.id,
-  });
+  }) {
+    posterPath = 'https://image.tmdb.org/t/p/original$posterPath';
+  }
 
   MovieDto.fromJson(Map<String, dynamic> json)
       : this(

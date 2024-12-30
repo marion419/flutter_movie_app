@@ -13,8 +13,8 @@ void main() {
     // 레포지토리 -> usecase
     final _findMoviesUsecase = FindMoviesUsecase(_movieRepository);
     // usecase의 excute 함수 실행
-    final result = await _findMoviesUsecase
-        .excute('https://api.themoviedb.org/3/movie/now_playing');
+    final result = await _findMoviesUsecase.excuteNowPlaying();
     expect(result.isEmpty, false);
+    print(result[0].posterPath);
   });
 }

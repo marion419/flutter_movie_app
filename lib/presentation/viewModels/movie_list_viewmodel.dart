@@ -9,8 +9,9 @@ class MovieListViewmodel extends AutoDisposeNotifier<List<Movie>> {
     return [];
   }
 
-  Future<void> findMoviesNowPlaying() async {
+  Future<List<Movie>> findMoviesNowPlaying() async {
     state = await ref.read(findMoviesUsecaseProvider).excuteNowPlaying();
+    return state;
   }
 
   Future<void> findMoviesPopular() async {

@@ -3,16 +3,15 @@ import 'package:flutter_movie_app/presentation/viewModels/movie_list_viewmodel.d
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // 가로 스크롤뷰 영화 리스트
-class MovieList extends ConsumerWidget {
-  const MovieList({super.key, required this.title});
+class MovieListTopRated extends ConsumerWidget {
+  const MovieListTopRated({super.key, required this.title});
 
   final String title;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final viewModel = ref.read(movieListViewModel.notifier);
-    viewModel.findMoviesNowPlaying();
-    final array = ref.watch(movieListViewModel);
+    ref.read(movieListViewModel.notifier).findMoviesTopRated();
+    final movieList = ref.watch(movieListViewModel);
 
     return Padding(
       padding: const EdgeInsets.only(left: 10),
@@ -34,7 +33,7 @@ class MovieList extends ConsumerWidget {
             child: ListView.separated(
               shrinkWrap: true,
               scrollDirection: Axis.horizontal,
-              itemCount: array.length,
+              itemCount: movieList.length,
               separatorBuilder: (context, index) {
                 return const SizedBox(width: 10);
               },
@@ -45,7 +44,7 @@ class MovieList extends ConsumerWidget {
                     borderRadius: BorderRadius.circular(20),
                     color: Colors.blueAccent,
                     image: DecorationImage(
-                      image: NetworkImage(array[index].posterPath),
+                      image: NetworkImage(movieList[index].posterPath),
                       fit: BoxFit.cover,
                     ),
                   ),

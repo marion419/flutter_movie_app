@@ -53,4 +53,20 @@ class MovieDetailDto {
               )
               .toList(),
         );
+
+  Map<String, dynamic> toJson() => {
+        "title": title,
+        "overview": overview,
+        "poster-path": posterPath,
+        "release_date": releaseDate,
+        "tagline": tagline,
+        "popularity": popularity,
+        "vote_average": voteAverage,
+        "vote_count": voteCount,
+        "budget": budget,
+        "revenue": revenue,
+        "runtime": runtime,
+        "genres": genres,
+        "production_companies": productionCompanies,
+      };
 }

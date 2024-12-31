@@ -1,5 +1,3 @@
-import 'package:flutter/scheduler.dart';
-
 class MovieDetailDto {
   String title; // 제목
   String overview; // 설명

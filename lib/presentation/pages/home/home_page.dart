@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/domain/entities/movie.dart';
-import 'package:flutter_movie_app/presentation/pages/home/widgets/movie_list_now_playing.dart';
 import 'package:flutter_movie_app/presentation/pages/home/widgets/movie_list_popularity.dart';
-import 'package:flutter_movie_app/presentation/pages/home/widgets/movie_list_top_rated.dart';
 import 'package:flutter_movie_app/presentation/pages/home/widgets/movie_list.dart';
 import 'package:flutter_movie_app/presentation/viewModels/now_playing_viewmodel.dart';
 import 'package:flutter_movie_app/presentation/viewModels/top_rated_viewmodel.dart';

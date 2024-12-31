@@ -4,14 +4,6 @@ class MovieDetailDto {
   String posterPath; // 포스터 URL
   String releaseDate; // 개봉일
   String tagline; // 태그라인
-  // double popularity; // 인기 점수
-  // double voteAverage; // 평점
-  // int voteCount; // 평점 투표수
-  // int budget; // 예산
-  // int revenue; // 수익
-  // int runtime; // 러닝타임
-  // List<String> genres; // 장르 배열
-  // List<String> productionCompanies; // 배급사 배열
   String popularity; // 인기 점수
   String voteAverage; // 평점
   String voteCount; // 평점 투표수

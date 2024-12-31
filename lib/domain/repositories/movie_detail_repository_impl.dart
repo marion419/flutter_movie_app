@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter_movie_app/data/data_resources/movie_detail_data_source.dart';
 import 'package:flutter_movie_app/domain/entities/movie_detail.dart';
 import 'package:flutter_movie_app/domain/repositories/movie_detail_repository.dart';

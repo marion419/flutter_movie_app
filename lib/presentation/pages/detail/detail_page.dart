@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/domain/entities/movie_detail.dart';
 
 class DetailPage extends StatelessWidget {
   const DetailPage(this.movieId, {super.key});

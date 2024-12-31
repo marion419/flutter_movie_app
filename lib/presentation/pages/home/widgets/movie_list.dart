@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/domain/entities/movie.dart';
+import 'package:flutter_movie_app/presentation/pages/detail/detail_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // 가로 스크롤뷰 영화 리스트
@@ -45,6 +46,18 @@ class MovieList extends ConsumerWidget {
                       image: NetworkImage(movieList[index].posterPath),
                       fit: BoxFit.cover,
                     ),
+                  ),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return DetailPage();
+                          },
+                        ),
+                      );
+                    },
                   ),
                 );
               },

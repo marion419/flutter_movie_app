@@ -53,7 +53,7 @@ class MovieList extends ConsumerWidget {
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return DetailPage();
+                            return DetailPage(movieList[index].id);
                           },
                         ),
                       );

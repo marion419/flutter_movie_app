@@ -11,9 +11,6 @@ class MovieList extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    //ref.read(upComingViewmodel.notifier).findMoviesUpComing();
-    //final movieList = ref.watch(upComingViewmodel);
-
     return Padding(
       padding: const EdgeInsets.only(left: 10),
       child: Column(

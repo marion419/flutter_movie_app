@@ -1,17 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/domain/entities/movie.dart';
 import 'package:flutter_movie_app/presentation/pages/detail/detail_page.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // 가로 스크롤뷰 영화 리스트
-class MovieList extends ConsumerWidget {
+class MovieList extends StatelessWidget {
   const MovieList({super.key, required this.title, required this.movieList});
 
   final String title;
   final List<Movie> movieList;
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 10),
       child: Column(
@@ -37,29 +36,28 @@ class MovieList extends ConsumerWidget {
                 return const SizedBox(width: 10);
               },
               itemBuilder: (BuildContext context, int index) {
-                return Hero(
-                  tag: "openDetail",
+                return GestureDetector(
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return DetailPage(movieList[index].id);
+                        },
+                      ),
+                    );
+                  },
                   child: Container(
                     width: 130,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       color: Colors.blueAccent,
-                      image: DecorationImage(
-                        image: NetworkImage(movieList[index].posterPath),
-                        fit: BoxFit.cover,
-                      ),
                     ),
-                    child: GestureDetector(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return DetailPage(movieList[index].id);
-                            },
-                          ),
-                        );
-                      },
+                    child: Image(
+                      fit: BoxFit.cover,
+                      image: movieList[index].posterPath != null
+                          ? NetworkImage(movieList[index].posterPath!)
+                          : const AssetImage('assets/images/sample_poster.jpg'),
                     ),
                   ),
                 );

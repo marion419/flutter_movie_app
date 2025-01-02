@@ -37,27 +37,30 @@ class MovieList extends ConsumerWidget {
                 return const SizedBox(width: 10);
               },
               itemBuilder: (BuildContext context, int index) {
-                return Container(
-                  width: 130,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(20),
-                    color: Colors.blueAccent,
-                    image: DecorationImage(
-                      image: NetworkImage(movieList[index].posterPath),
-                      fit: BoxFit.cover,
+                return Hero(
+                  tag: "openDetail",
+                  child: Container(
+                    width: 130,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: Colors.blueAccent,
+                      image: DecorationImage(
+                        image: NetworkImage(movieList[index].posterPath),
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                  ),
-                  child: GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return DetailPage(movieList[index].id);
-                          },
-                        ),
-                      );
-                    },
+                    child: GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return DetailPage(movieList[index].id);
+                            },
+                          ),
+                        );
+                      },
+                    ),
                   ),
                 );
               },

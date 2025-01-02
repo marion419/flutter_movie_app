@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/presentation/viewModels/popular_viewmodel.dart';
+import 'package:flutter_movie_app/domain/entities/movie.dart';
+import 'package:flutter_movie_app/presentation/pages/detail/detail_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // 가로 스크롤뷰 영화 리스트
 class MovieListPopularity extends ConsumerWidget {
-  const MovieListPopularity({super.key});
+  MovieListPopularity({super.key, required this.movieList});
+
+  List<Movie> movieList;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.read(popularViewModel.notifier).findMoviesPopular();
-    final movieList = ref.watch(popularViewModel);
-
     return Padding(
       padding: const EdgeInsets.only(left: 10),
       child: Column(
@@ -48,6 +48,18 @@ class MovieListPopularity extends ConsumerWidget {
                             image: NetworkImage(movieList[index].posterPath),
                             fit: BoxFit.cover,
                           ),
+                        ),
+                        child: GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return DetailPage(movieList[index].id);
+                                },
+                              ),
+                            );
+                          },
                         ),
                       ),
                       Positioned(

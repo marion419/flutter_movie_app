@@ -30,7 +30,9 @@ class MovieDetailDto {
     required this.runtime,
     required this.genres,
     required this.productionCompanies,
-  });
+  }) {
+    posterPath = 'https://image.tmdb.org/t/p/original$posterPath';
+  }
 
   MovieDetailDto.fromJson(Map<dynamic, dynamic> json)
       : this(

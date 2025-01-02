@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movie_app/domain/entities/movie_detail.dart';
+import 'package:flutter_movie_app/domain/usecases/find_detail_usecase.dart';
+import 'package:flutter_movie_app/presentation/pages/detail/widgets/genre_widget.dart';
+import 'package:flutter_movie_app/presentation/providers.dart';
+import 'package:flutter_movie_app/presentation/viewModels/find_detail_viewmodel.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class DetailPage extends StatelessWidget {
+class DetailPage extends ConsumerWidget {
   const DetailPage(this.movieId, {super.key});
 
   final int movieId;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
+    ref.read(findDetailViewmodel.notifier).findDetail(movieId);
+    final detail = ref.watch(findDetailViewmodel);
+
     return Scaffold(
       appBar: AppBar(),
       body: ListView(
@@ -15,14 +24,14 @@ class DetailPage extends StatelessWidget {
           Container(
             width: double.infinity,
             height: 550,
-            decoration: const BoxDecoration(
+            decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/sample_poster.jpg'),
+                image: NetworkImage(detail.posterPath),
                 fit: BoxFit.cover,
               ),
             ),
           ),
-          const Padding(
+          Padding(
             padding: const EdgeInsets.all(16),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -32,16 +41,16 @@ class DetailPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      'title',
-                      style: TextStyle(
+                      detail.title,
+                      style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: 24,
                         color: Colors.white,
                       ),
                     ),
                     Text(
-                      'date',
-                      style: TextStyle(
+                      detail.releaseDate,
+                      style: const TextStyle(
                         fontSize: 16,
                         color: Colors.white,
                       ),
@@ -50,47 +59,52 @@ class DetailPage extends StatelessWidget {
                 ),
                 // 태그라인
                 Text(
-                  'tagline tagline tagline tagline',
-                  style: TextStyle(
+                  detail.tagline,
+                  style: const TextStyle(
                     fontSize: 16,
                     color: Colors.white,
                   ),
                 ),
+                // 상영 시간
                 Text(
-                  '100분',
-                  style: TextStyle(
+                  '${detail.runtime}분',
+                  style: const TextStyle(
                     fontSize: 16,
                     color: Colors.white,
                   ),
                 ),
-                SizedBox(height: 12),
+                const SizedBox(height: 12),
                 // 장르 박스
-                Divider(
+                const Divider(
                   height: 2,
                   color: Color.fromARGB(255, 91, 91, 91),
                 ),
-                SizedBox(height: 60),
-                Divider(
+                const SizedBox(height: 12),
+                GenreWidget(
+                  list: detail.genres,
+                ),
+                const SizedBox(height: 12),
+                const Divider(
                   height: 2,
                   color: Color.fromARGB(255, 91, 91, 91),
                 ),
-                SizedBox(height: 12),
+                const SizedBox(height: 12),
                 // 영화 설명
                 Text(
-                  '설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명설명',
-                  style: TextStyle(
+                  detail.overview,
+                  style: const TextStyle(
                     fontSize: 16,
                     color: Colors.white,
                   ),
                 ),
-                SizedBox(height: 12),
-                Divider(
+                const SizedBox(height: 12),
+                const Divider(
                   height: 2,
                   color: Color.fromARGB(255, 91, 91, 91),
                 ),
-                SizedBox(height: 16),
+                const SizedBox(height: 16),
                 // 흥행정보
-                Text(
+                const Text(
                   '흥행정보',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
@@ -98,7 +112,7 @@ class DetailPage extends StatelessWidget {
                     color: Colors.white,
                   ),
                 ),
-                SizedBox(height: 100),
+                const SizedBox(height: 100),
               ],
             ),
           )

@@ -22,7 +22,7 @@ class CompanyWidget extends StatelessWidget {
           return Container(
             padding: const EdgeInsets.all(16),
             width: 130,
-            color: Colors.grey[100],
+            color: Colors.white.withOpacity(0.9),
             child: Center(
               child: list[index].logoPath == null
                   ? Text(

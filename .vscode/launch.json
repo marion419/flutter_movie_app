@@ -5,28 +5,10 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "flutter_movie_app",
-      "request": "launch",
-      "type": "dart"
-    },
-    {
-      "name": "flutter_movie_app (profile mode)",
-      "request": "launch",
-      "type": "dart",
-      "flutterMode": "profile"
-    },
-    {
-      "name": "flutter_movie_app (release mode)",
-      "request": "launch",
-      "type": "dart",
-      "flutterMode": "release"
-    },
-    {
       "name": "flutter_env",
       "request": "launch",
       "type": "dart",
-      "toolArgs": ["--dart-define-from-file", "./.env"],
-      "flutterMode": "release"
+      "toolArgs": ["--dart-define-from-file", "./.env"]
     }
   ]
 }

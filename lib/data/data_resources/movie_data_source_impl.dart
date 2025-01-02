@@ -16,17 +16,14 @@ class MovieDataSourceImpl implements MovieDataSource {
           'include_video': false,
         },
         options: Options(headers: <String, dynamic>{
-          // 'Authorization': const String.fromEnvironment('Authorization'),
-          // 'Accept': const String.fromEnvironment('Accept'),
-          'Authorization':
-              'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJlNDdhYWE2ZjUyZDA5ODI3YjEzN2E3ZjUxNmM3MTAwMCIsIm5iZiI6MTczNDk0ODk2NC41NzMsInN1YiI6IjY3NjkzODY0NjE3OGZjYmJlYWM0ZGZjNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.wpHPPQ9ZALOKA3vKe29N0p4tVAd2wjowBQOOoNPp3n8',
-          'Accept': 'application/json',
-          'User-Agent': 'ReadMe-API-Explorer',
+          'Authorization': const String.fromEnvironment('Authorization'),
+          'Accept': const String.fromEnvironment('Accept'),
+          'User-Agent': 'API-Explorer',
         }));
 
     try {
       if (response.statusCode == 200) {
-        print('response found');
+        print('movie response found');
         final movies = response.data['results'];
         final iterable = List.from(movies).map((e) {
           return MovieDto.fromJson(e);

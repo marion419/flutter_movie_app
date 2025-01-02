@@ -1,3 +1,6 @@
+import 'package:flutter_movie_app/data/dto/company.dart';
+import 'package:flutter_movie_app/data/dto/genre.dart';
+
 class MovieDetail {
   String title; // 제목
   String overview; // 설명
@@ -10,8 +13,8 @@ class MovieDetail {
   int budget; // 예산
   int revenue; // 수익
   int runtime; // 러닝타임
-  List<String> genres; // 장르 배열
-  List<String> productionCompanies; // 배급사 배열
+  List<Genre> genres; // 장르 배열
+  List<Company> productionCompanies; // 배급사 배열
 
   MovieDetail(
     this.title,

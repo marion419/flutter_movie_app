@@ -1,17 +1,20 @@
+import 'package:flutter_movie_app/data/dto/company.dart';
+import 'package:flutter_movie_app/data/dto/genre.dart';
+
 class MovieDetailDto {
   String title; // 제목
   String overview; // 설명
   String posterPath; // 포스터 URL
   String releaseDate; // 개봉일
   String tagline; // 태그라인
-  String popularity; // 인기 점수
-  String voteAverage; // 평점
-  String voteCount; // 평점 투표수
-  String budget; // 예산
-  String revenue; // 수익
-  String runtime; // 러닝타임
-  List<String> genres; // 장르 배열
-  List<String> productionCompanies; // 배급사 배열
+  double popularity; // 인기 점수
+  double voteAverage; // 평점
+  int voteCount; // 평점 투표수
+  int budget; // 예산
+  int revenue; // 수익
+  int runtime; // 러닝타임
+  List<Genre> genres; // 장르 배열
+  List<Company> productionCompanies; // 배급사 배열
 
   MovieDetailDto({
     required this.title,
@@ -29,32 +32,30 @@ class MovieDetailDto {
     required this.productionCompanies,
   });
 
-  MovieDetailDto.fromJson(Map<String, dynamic> json)
+  MovieDetailDto.fromJson(Map<dynamic, dynamic> json)
       : this(
           title: json['title'],
           overview: json['overview'],
           posterPath: json['poster_path'],
           releaseDate: json['release_date'],
           tagline: json['tagline'],
-          popularity: (json['popularity']),
+          popularity: json['popularity'],
           voteAverage: json['vote_average'],
           voteCount: json['vote_count'],
           budget: json['budget'],
           revenue: json['revenue'],
           runtime: json['runtime'],
-          genres: (json['genres'] as List)
-              .map(
-                (e) => e as String,
-              )
-              .toList(),
+          // genres: (json['genres'] as List<Genre>),
+          // productionCompanies:
+          //     (json['production_companies'] as List<Company>),
+          genres:
+              (json['genres'] as List).map((e) => Genre.fromJson(e)).toList(),
           productionCompanies: (json['production_companies'] as List)
-              .map(
-                (e) => e as String,
-              )
+              .map((e) => Company.fromJson(e))
               .toList(),
         );
 
-  Map<String, dynamic> toJson() => {
+  Map<dynamic, dynamic> toJson() => {
         "title": title,
         "overview": overview,
         "poster-path": posterPath,

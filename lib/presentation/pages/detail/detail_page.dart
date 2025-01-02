@@ -31,7 +31,7 @@ class DetailPage extends StatelessWidget {
                   width: double.infinity,
                   height: 550,
                   decoration: BoxDecoration(
-                    color: Colors.blueAccent,
+                    color: Colors.grey[900],
                     image: DecorationImage(
                       image: detail.posterPath != null
                           ? NetworkImage(detail.posterPath!)
@@ -50,12 +50,14 @@ class DetailPage extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          detail.title,
-                          style: const TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 24,
-                            color: Colors.white,
+                        Expanded(
+                          child: Text(
+                            detail.title,
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 24,
+                              color: Colors.white,
+                            ),
                           ),
                         ),
                         Text(

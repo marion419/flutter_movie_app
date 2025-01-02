@@ -8,7 +8,7 @@ class MovieDetailRepositoryImpl implements MovieDetailRepository {
   final MovieDetailDataSource _movieDetailDataSource;
 
   @override
-  Future<MovieDetail?> findDetail(int id) async {
+  Future<MovieDetail> findDetail(int id) async {
     final result = await _movieDetailDataSource.findDetail(id);
     if (result != null) {
       return MovieDetail(
@@ -26,6 +26,20 @@ class MovieDetailRepositoryImpl implements MovieDetailRepository {
           result.genres,
           result.productionCompanies);
     }
-    return null;
+    return MovieDetail(
+      'title',
+      'overview',
+      'posterPath',
+      'releaseDate',
+      'tagline',
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      [],
+      [],
+    );
   }
 }

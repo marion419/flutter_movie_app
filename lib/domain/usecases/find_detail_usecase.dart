@@ -6,7 +6,9 @@ class FindDetailUsecase {
 
   final MovieDetailRepository _movieDetailRepository;
 
-  Future<MovieDetail?> excute(int id) async {
-    return await _movieDetailRepository.findDetail(id);
+  Future<MovieDetail> excute(int id) async {
+    MovieDetail detail = await _movieDetailRepository.findDetail(id);
+
+    return detail;
   }
 }

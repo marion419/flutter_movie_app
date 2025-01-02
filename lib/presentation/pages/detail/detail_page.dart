@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/domain/entities/movie_detail.dart';
 import 'package:flutter_movie_app/domain/usecases/find_detail_usecase.dart';
+import 'package:flutter_movie_app/presentation/pages/detail/widgets/company_widget.dart';
 import 'package:flutter_movie_app/presentation/pages/detail/widgets/genre_widget.dart';
 import 'package:flutter_movie_app/presentation/providers.dart';
 import 'package:flutter_movie_app/presentation/viewModels/find_detail_viewmodel.dart';
@@ -112,11 +113,66 @@ class DetailPage extends ConsumerWidget {
                     color: Colors.white,
                   ),
                 ),
-                const SizedBox(height: 100),
+                SizedBox(
+                  width: double.infinity,
+                  height: 80,
+                  child: ListView(
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      DataBox(detail: detail),
+                      DataBox(
+                        detail: detail,
+                      )
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 12),
+                // 배급사
+                CompanyWidget(list: detail.productionCompanies),
               ],
             ),
           )
         ],
+      ),
+    );
+  }
+}
+
+class DataBox extends StatelessWidget {
+  const DataBox({
+    super.key,
+    required this.detail,
+  });
+
+  final MovieDetail detail;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(right: 10),
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 28),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(color: Colors.white),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              '${detail.voteAverage}',
+              style: const TextStyle(fontSize: 16, color: Colors.white),
+            ),
+            const Text(
+              '평점',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.white,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

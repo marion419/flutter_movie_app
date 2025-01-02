@@ -67,7 +67,7 @@ class MovieListPopularity extends StatelessWidget {
                             ),
                           ),
                           child: Hero(
-                            tag: '${movieList[index].id}',
+                            tag: '${movieList[index].id}$sortMethod',
                             child: Image(
                               fit: BoxFit.cover,
                               image: movieList[index].posterPath != null

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/domain/entities/movie.dart';
 import 'package:flutter_movie_app/presentation/pages/detail/detail_page.dart';
+import 'package:flutter_movie_app/presentation/viewModels/up_coming_viewmodel.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // 가로 스크롤뷰 영화 리스트
@@ -12,6 +13,9 @@ class MovieList extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    ref.read(upComingViewmodel.notifier).findMoviesUpComing();
+    final movieList = ref.watch(upComingViewmodel);
+
     return Padding(
       padding: const EdgeInsets.only(left: 10),
       child: Column(

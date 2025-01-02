@@ -12,11 +12,7 @@ void main() {
 
     final _findDetailUsecase = FindDetailUsecase(_movieDetailRepository);
     final result = await _findDetailUsecase.excute(845781);
-    expect(result == null, false);
-    if (result != null) {
-      print(result.genres[0].name);
-    } else {
-      print('failed');
-    }
+    print('${result.productionCompanies.length}');
+    print(result.posterPath);
   });
 }

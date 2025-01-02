@@ -10,7 +10,7 @@ class CompanyWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 80,
+      height: 70,
       child: ListView.separated(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,
@@ -20,18 +20,21 @@ class CompanyWidget extends StatelessWidget {
         },
         itemBuilder: (context, index) {
           return Container(
-            width: 120,
-            decoration: BoxDecoration(
-                border: Border.all(color: Colors.white), color: Colors.white),
+            padding: const EdgeInsets.all(16),
+            width: 130,
+            color: Colors.white.withOpacity(0.9),
             child: Center(
-              child: Text(
-                list[index].name,
-                style: const TextStyle(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 18,
-                  color: Colors.blueAccent,
-                ),
-              ),
+              child: list[index].logoPath == null
+                  ? Text(
+                      textAlign: TextAlign.center,
+                      list[index].name,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        color: Colors.black,
+                      ),
+                    )
+                  : Image(image: NetworkImage(list[index].logoPath!)),
             ),
           );
         },

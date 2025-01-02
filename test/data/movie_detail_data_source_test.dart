@@ -9,7 +9,7 @@ void main() {
     if (result != null) {
       expect(result.title.length, 7);
       print(result.title);
-      print(result.genres[0].name);
+      print('${result.productionCompanies[0].logoPath}');
     }
     if (result == null) print('failed');
   });

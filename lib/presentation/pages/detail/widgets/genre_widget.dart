@@ -9,7 +9,7 @@ class GenreWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
-      height: 35,
+      height: 40,
       child: ListView.separated(
         shrinkWrap: true,
         scrollDirection: Axis.horizontal,

@@ -4,7 +4,7 @@ class Genre {
 
   Genre.fromJson(Map<String, dynamic> json)
       : this(
-          name: json["name"],
+          name: json["name"] == 'Science Fiction' ? "Science" : json["name"],
         );
 
   Map<String, dynamic> toJson() => {

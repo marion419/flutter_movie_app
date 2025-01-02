@@ -16,13 +16,13 @@ final _movieDataSourceProvider = Provider<MovieDataSource>((ref) {
   return MovieDataSourceImpl();
 });
 
-final _movieRepositoryProvider = Provider<MovieRepository>((ref) {
+final movieRepositoryProvider = Provider<MovieRepository>((ref) {
   final dataSource = ref.read(_movieDataSourceProvider);
   return MovieRepositoryImpl(dataSource);
 });
 
 final findMoviesUsecaseProvider = Provider((ref) {
-  final movieRepo = ref.read(_movieRepositoryProvider);
+  final movieRepo = ref.read(movieRepositoryProvider);
   return FindMoviesUsecase(movieRepo);
 });
 

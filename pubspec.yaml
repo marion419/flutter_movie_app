@@ -37,6 +37,7 @@ dependencies:
   dio: ^5.7.0
   flutter_displaymode: ^0.6.0
   flutter_riverpod: ^2.6.1
+  flutter_native_splash: ^2.4.4
 
 dev_dependencies:
   flutter_test:

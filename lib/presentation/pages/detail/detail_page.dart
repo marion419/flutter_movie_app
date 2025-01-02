@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_movie_app/domain/entities/movie_detail.dart';
-import 'package:flutter_movie_app/domain/usecases/find_detail_usecase.dart';
 import 'package:flutter_movie_app/presentation/pages/detail/widgets/company_widget.dart';
 import 'package:flutter_movie_app/presentation/pages/detail/widgets/data_box.dart';
 import 'package:flutter_movie_app/presentation/pages/detail/widgets/genre_widget.dart';
-import 'package:flutter_movie_app/presentation/providers.dart';
 import 'package:flutter_movie_app/presentation/viewModels/find_detail_viewmodel.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -15,11 +12,13 @@ class DetailPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.read(findDetailViewmodel.notifier).findDetail(movieId);
+    ref.watch(findDetailViewmodel.notifier).findDetail(movieId);
     final detail = ref.watch(findDetailViewmodel);
 
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        iconTheme: const IconThemeData(color: Colors.white),
+      ),
       body: ListView(
         children: [
           // 포스터

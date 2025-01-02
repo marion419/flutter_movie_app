@@ -5,9 +5,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 // 가로 스크롤뷰 영화 리스트
 class MovieListPopularity extends ConsumerWidget {
-  MovieListPopularity({super.key, required this.movieList});
+  const MovieListPopularity({super.key, required this.movieList});
 
-  List<Movie> movieList;
+  final List<Movie> movieList;
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {

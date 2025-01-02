@@ -1,7 +1,5 @@
 import 'package:dio/dio.dart';
 import 'package:flutter_movie_app/data/data_resources/movie_detail_data_source.dart';
-import 'package:flutter_movie_app/data/dto/company.dart';
-import 'package:flutter_movie_app/data/dto/genre.dart';
 import 'package:flutter_movie_app/data/dto/movie_detail_dto.dart';
 
 class MovieDetailDataSourceImpl implements MovieDetailDataSource {

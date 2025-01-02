@@ -4,8 +4,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_movie_app/presentation/providers.dart';
 
 class Movies {
-  List<List<Movie>> list;
-  Movies(this.list);
+  List<Movie> nowPlaying;
+  List<Movie> popular;
+  List<Movie> topRated;
+  List<Movie> upcoming;
+  Movies(this.nowPlaying, this.popular, this.topRated, this.upcoming);
 }
 
 class NowPlayingViewmodel extends AutoDisposeNotifier<Movies> {
@@ -16,7 +19,7 @@ class NowPlayingViewmodel extends AutoDisposeNotifier<Movies> {
 
   @override
   Movies build() {
-    return Movies([nowPlaying, popular, topRated, upcoming]);
+    return Movies(nowPlaying, popular, topRated, upcoming);
   }
 
   Future<void> findMoviesNowPlaying() async {
@@ -24,7 +27,7 @@ class NowPlayingViewmodel extends AutoDisposeNotifier<Movies> {
     popular = await ref.read(findMoviesUsecaseProvider).excutePopluar();
     topRated = await ref.read(findMoviesUsecaseProvider).excuteTopRated();
     upcoming = await ref.read(findMoviesUsecaseProvider).excuteUpComing();
-    state = Movies([nowPlaying, popular, topRated, upcoming]);
+    state = Movies(nowPlaying, popular, topRated, upcoming);
   }
 }
 

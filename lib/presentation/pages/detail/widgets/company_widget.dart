@@ -25,7 +25,7 @@ class CompanyWidget extends StatelessWidget {
                 border: Border.all(color: Colors.white), color: Colors.white),
             child: Center(
               child: Text(
-                list[index].name,
+                'list[index].name',
                 style: const TextStyle(
                   fontWeight: FontWeight.w400,
                   fontSize: 18,

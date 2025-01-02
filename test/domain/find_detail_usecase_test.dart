@@ -12,7 +12,7 @@ void main() {
 
     final _findDetailUsecase = FindDetailUsecase(_movieDetailRepository);
     final result = await _findDetailUsecase.excute(845781);
-    print('${result.productionCompanies.length}');
-    print(result.posterPath);
+    print(result.title);
+    print('${result.productionCompanies[0].logoPath}');
   });
 }

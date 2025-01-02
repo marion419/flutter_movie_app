@@ -1,6 +1,6 @@
 class MovieDto {
   String title;
-  String posterPath;
+  String? posterPath;
   int id;
 
   MovieDto({
@@ -8,7 +8,9 @@ class MovieDto {
     required this.posterPath,
     required this.id,
   }) {
-    posterPath = 'https://image.tmdb.org/t/p/original$posterPath';
+    if (posterPath != null) {
+      posterPath = 'https://image.tmdb.org/t/p/original$posterPath';
+    }
   }
 
   MovieDto.fromJson(Map<String, dynamic> json)

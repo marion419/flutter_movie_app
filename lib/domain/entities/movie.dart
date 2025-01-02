@@ -1,6 +1,6 @@
 class Movie {
   String title; // 제목
-  String posterPath; // 포스터 URL
+  String? posterPath; // 포스터 URL
   int id;
 
   Movie(

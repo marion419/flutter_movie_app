@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/presentation/pages/home/home_page.dart';
-import 'package:flutter_movie_app/presentation/pages/splash.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 void main() {
@@ -20,7 +19,7 @@ class MyApp extends StatelessWidget {
         ),
         scaffoldBackgroundColor: Colors.black,
       ),
-      home: Splash(),
+      home: const HomePage(),
     );
   }
 }

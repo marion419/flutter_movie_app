@@ -1,3 +1,5 @@
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/presentation/pages/detail/detail_page.dart';
 import 'package:flutter_movie_app/presentation/pages/home/widgets/movie_list_popularity.dart';
@@ -13,6 +15,11 @@ class HomePage extends ConsumerStatefulWidget {
 }
 
 class HomePageState extends ConsumerState<HomePage> {
+  final int NOW_PLAYING = 0;
+  final int POPULAR = 1;
+  final int TOP_RATED = 2;
+  final int UPCOMING = 3;
+
   @override
   Widget build(BuildContext context) {
     ref.read(nowPlayingViewModel.notifier).findMoviesNowPlaying();
@@ -42,7 +49,7 @@ class HomePageState extends ConsumerState<HomePage> {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
                     image: DecorationImage(
-                      image: NetworkImage(result.list[1][0].posterPath),
+                      image: NetworkImage(result.list[POPULAR][0].posterPath),
                       fit: BoxFit.cover,
                     ),
                   ),
@@ -52,7 +59,7 @@ class HomePageState extends ConsumerState<HomePage> {
                         context,
                         MaterialPageRoute(
                           builder: (context) {
-                            return DetailPage(result.list[1][0].id);
+                            return DetailPage(result.list[POPULAR][0].id);
                           },
                         ),
                       );
@@ -65,11 +72,11 @@ class HomePageState extends ConsumerState<HomePage> {
           // 영화 리스트
           MovieList(
             title: '현재 상영중',
-            movieList: result.list[0],
+            movieList: result.list[NOW_PLAYING],
           ),
-          MovieListPopularity(movieList: result.list[1]),
-          MovieList(title: '평점 높은 순', movieList: result.list[2]),
-          MovieList(title: '개봉 예정', movieList: result.list[3]),
+          MovieListPopularity(movieList: result.list[POPULAR]),
+          MovieList(title: '평점 높은 순', movieList: result.list[TOP_RATED]),
+          MovieList(title: '개봉 예정', movieList: result.list[UPCOMING]),
         ],
       ),
     );

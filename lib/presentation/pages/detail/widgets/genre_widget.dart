@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/data/dto/genre.dart';
 
 class GenreWidget extends StatelessWidget {
-  GenreWidget({super.key, required this.list});
+  const GenreWidget({super.key, required this.list});
   final List<Genre> list;
 
   @override

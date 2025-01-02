@@ -1,6 +1,4 @@
 import 'dart:async';
-
-import 'package:flutter/widgets.dart';
 import 'package:flutter_movie_app/domain/entities/movie_detail.dart';
 import 'package:flutter_movie_app/presentation/providers.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';

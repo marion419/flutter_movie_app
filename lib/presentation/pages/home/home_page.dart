@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_movie_app/presentation/pages/detail/detail_page.dart';
 import 'package:flutter_movie_app/presentation/pages/home/widgets/movie_list_popularity.dart';
 import 'package:flutter_movie_app/presentation/pages/home/widgets/movie_list_upcoming.dart';
 import 'package:flutter_movie_app/presentation/viewModels/now_playing_viewmodel.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class HomePage extends ConsumerStatefulWidget {
+  const HomePage({super.key});
+
   @override
   HomePageState createState() => HomePageState();
 }
@@ -38,10 +41,22 @@ class HomePageState extends ConsumerState<HomePage> {
                   height: 600,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                    image: const DecorationImage(
-                      image: AssetImage('assets/images/sample_poster.jpg'),
+                    image: DecorationImage(
+                      image: NetworkImage(result.list[1][0].posterPath),
                       fit: BoxFit.cover,
                     ),
+                  ),
+                  child: GestureDetector(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return DetailPage(result.list[1][0].id);
+                          },
+                        ),
+                      );
+                    },
                   ),
                 ),
               ],

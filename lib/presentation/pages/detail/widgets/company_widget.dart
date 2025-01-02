@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/data/dto/company.dart';
-import 'package:flutter_movie_app/data/dto/genre.dart';
 
 class CompanyWidget extends StatelessWidget {
-  CompanyWidget({super.key, required this.list});
+  const CompanyWidget({super.key, required this.list});
   final List<Company> list;
 
   @override

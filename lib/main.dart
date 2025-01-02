@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
         ),
         scaffoldBackgroundColor: Colors.black,
       ),
-      home: HomePage(),
+      home: const HomePage(),
     );
   }
 }

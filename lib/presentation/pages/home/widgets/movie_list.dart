@@ -60,7 +60,6 @@ class MovieList extends StatelessWidget {
                       width: 130,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
-                          color: Colors.blueAccent,
                           image: DecorationImage(
                             fit: BoxFit.cover,
                             image: movieList[index].posterPath != null

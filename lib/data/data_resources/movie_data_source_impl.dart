@@ -18,12 +18,12 @@ class MovieDataSourceImpl implements MovieDataSource {
         options: Options(headers: <String, dynamic>{
           'Authorization': const String.fromEnvironment('Authorization'),
           'Accept': const String.fromEnvironment('Accept'),
-          'User-Agent': 'ReadMe-API-Explorer',
+          'User-Agent': 'API-Explorer',
         }));
 
     try {
       if (response.statusCode == 200) {
-        print('response found');
+        print('movie response found');
         final movies = response.data['results'];
         final iterable = List.from(movies).map((e) {
           return MovieDto.fromJson(e);

@@ -4,7 +4,7 @@ import 'package:flutter_movie_app/data/dto/genre.dart';
 class MovieDetail {
   String title; // 제목
   String overview; // 설명
-  String posterPath; // 포스터 URL
+  String? posterPath; // 포스터 URL
   String releaseDate; // 개봉일
   String tagline; // 태그라인
   double popularity; // 인기 점수

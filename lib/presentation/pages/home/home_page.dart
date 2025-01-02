@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_movie_app/domain/usecases/find_movies_usecase.dart';
 import 'package:flutter_movie_app/presentation/pages/detail/detail_page.dart';
 import 'package:flutter_movie_app/presentation/pages/home/widgets/movie_list_popularity.dart';
-import 'package:flutter_movie_app/presentation/pages/home/widgets/movie_list_upcoming.dart';
+import 'package:flutter_movie_app/presentation/pages/home/widgets/movie_list.dart';
 import 'package:flutter_movie_app/presentation/providers.dart';
 import 'package:flutter_movie_app/presentation/viewModels/movies_viewmodel.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -49,7 +49,10 @@ class HomePage extends StatelessWidget {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(20),
                         image: DecorationImage(
-                          image: NetworkImage(result.popular.first.posterPath),
+                          image: result.popular.first.posterPath != null
+                              ? NetworkImage(result.popular.first.posterPath!)
+                              : const AssetImage(
+                                  'assets/images/sample_poster.jpg'),
                           fit: BoxFit.cover,
                         ),
                       ),
@@ -74,9 +77,9 @@ class HomePage extends StatelessWidget {
                 title: '현재 상영중',
                 movieList: result.nowPlaying,
               ),
-              MovieListPopularity(movieList: result.popular),
-              MovieList(title: '평점 높은 순', movieList: result.topRated),
-              MovieList(title: '개봉 예정', movieList: result.upcoming),
+              //MovieListPopularity(movieList: result.popular),
+              //MovieList(title: '평점 높은 순', movieList: result.topRated),
+              //MovieList(title: '개봉 예정', movieList: result.upcoming),
             ],
           );
         },

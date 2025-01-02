@@ -4,7 +4,7 @@ import 'package:flutter_movie_app/data/dto/genre.dart';
 class MovieDetailDto {
   String title; // 제목
   String overview; // 설명
-  String posterPath; // 포스터 URL
+  String? posterPath; // 포스터 URL
   String releaseDate; // 개봉일
   String tagline; // 태그라인
   double popularity; // 인기 점수
@@ -31,7 +31,9 @@ class MovieDetailDto {
     required this.genres,
     required this.productionCompanies,
   }) {
-    posterPath = 'https://image.tmdb.org/t/p/original$posterPath';
+    if (posterPath != null) {
+      posterPath = 'https://image.tmdb.org/t/p/original$posterPath';
+    }
   }
 
   MovieDetailDto.fromJson(Map<dynamic, dynamic> json)

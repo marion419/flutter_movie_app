@@ -3,6 +3,7 @@ import 'package:flutter_movie_app/presentation/pages/home/home_page.dart';
 import 'package:flutter_movie_app/presentation/viewModels/movies_viewmodel.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+// 로딩 화면
 class Splash extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

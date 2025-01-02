@@ -1,26 +1,30 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:flutter/material.dart';
+import 'package:flutter_movie_app/domain/usecases/find_movies_usecase.dart';
 import 'package:flutter_movie_app/presentation/pages/detail/detail_page.dart';
 import 'package:flutter_movie_app/presentation/pages/home/widgets/movie_list_popularity.dart';
 import 'package:flutter_movie_app/presentation/pages/home/widgets/movie_list_upcoming.dart';
-import 'package:flutter_movie_app/presentation/viewModels/now_playing_viewmodel.dart';
+import 'package:flutter_movie_app/presentation/providers.dart';
+import 'package:flutter_movie_app/presentation/viewModels/movies_viewmodel.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class HomePage extends StatelessWidget {
-  const HomePage();
+  const HomePage(this.result);
 
   final int NOW_PLAYING = 0;
   final int POPULAR = 1;
   final int TOP_RATED = 2;
   final int UPCOMING = 3;
+  final Movies result;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Consumer(
         builder: (context, ref, child) {
-          final result = ref.watch(nowPlayingViewModel);
+          //ref.watch(moviesViewModel.notifier).findMovies();
+          //final result = ref.read(moviesViewModel);
           return ListView(
             children: [
               // 가장 인기있는 영화

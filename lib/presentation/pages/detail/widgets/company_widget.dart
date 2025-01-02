@@ -23,8 +23,9 @@ class CompanyWidget extends StatelessWidget {
             width: 130,
             color: Colors.white.withOpacity(0.9),
             child: Center(
-              child: list[index].logoPath == null
-                  ? Text(
+              child: list[index].logoPath != null
+                  ? Image(image: NetworkImage(list[index].logoPath!))
+                  : Text(
                       textAlign: TextAlign.center,
                       list[index].name,
                       style: const TextStyle(
@@ -32,8 +33,7 @@ class CompanyWidget extends StatelessWidget {
                         fontSize: 18,
                         color: Colors.black,
                       ),
-                    )
-                  : Image(image: NetworkImage(list[index].logoPath!)),
+                    ),
             ),
           );
         },

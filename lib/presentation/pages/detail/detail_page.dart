@@ -12,11 +12,13 @@ class DetailPage extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    ref.read(findDetailViewmodel.notifier).findDetail(movieId);
+    ref.watch(findDetailViewmodel.notifier).findDetail(movieId);
     final detail = ref.watch(findDetailViewmodel);
 
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        iconTheme: const IconThemeData(color: Colors.white),
+      ),
       body: ListView(
         children: [
           // 포스터

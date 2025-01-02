@@ -11,7 +11,7 @@ class Movies {
   Movies(this.nowPlaying, this.popular, this.topRated, this.upcoming);
 }
 
-class NowPlayingViewmodel extends AutoDisposeNotifier<Movies> {
+class MoviesViewmodel extends AutoDisposeNotifier<Movies> {
   List<Movie> nowPlaying = [];
   List<Movie> popular = [];
   List<Movie> topRated = [];
@@ -22,7 +22,7 @@ class NowPlayingViewmodel extends AutoDisposeNotifier<Movies> {
     return Movies(nowPlaying, popular, topRated, upcoming);
   }
 
-  Future<void> findMoviesNowPlaying() async {
+  Future<void> findMovies() async {
     nowPlaying = await ref.read(findMoviesUsecaseProvider).excuteNowPlaying();
     popular = await ref.read(findMoviesUsecaseProvider).excutePopluar();
     topRated = await ref.read(findMoviesUsecaseProvider).excuteTopRated();
@@ -31,6 +31,5 @@ class NowPlayingViewmodel extends AutoDisposeNotifier<Movies> {
   }
 }
 
-final nowPlayingViewModel =
-    AutoDisposeNotifierProvider<NowPlayingViewmodel, Movies>(
-        () => NowPlayingViewmodel());
+final moviesViewModel = AutoDisposeNotifierProvider<MoviesViewmodel, Movies>(
+    () => MoviesViewmodel());

@@ -3,10 +3,12 @@ import 'package:flutter_movie_app/domain/entities/movie.dart';
 import 'package:flutter_movie_app/presentation/pages/detail/detail_page.dart';
 
 // 가로 스크롤뷰 영화 리스트
+// 인기순 리스트만 따로 위젯 분리
 class MovieListPopularity extends StatelessWidget {
   const MovieListPopularity({super.key, required this.movieList});
 
   final List<Movie> movieList;
+  final String sortMethod = 'POPULAR';
 
   @override
   Widget build(BuildContext context) {
@@ -15,6 +17,7 @@ class MovieListPopularity extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // 제목
           const Text(
             '인기순',
             style: TextStyle(
@@ -44,7 +47,8 @@ class MovieListPopularity extends StatelessWidget {
                             context,
                             MaterialPageRoute(
                               builder: (context) {
-                                return DetailPage(movieList[index].id);
+                                return DetailPage(
+                                    movieList[index].id, sortMethod);
                               },
                             ),
                           );
@@ -63,7 +67,7 @@ class MovieListPopularity extends StatelessWidget {
                             ),
                           ),
                           child: Hero(
-                            tag: 'open',
+                            tag: '${movieList[index].id}',
                             child: Image(
                               fit: BoxFit.cover,
                               image: movieList[index].posterPath != null

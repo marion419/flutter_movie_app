@@ -5,10 +5,12 @@ import 'package:flutter_movie_app/presentation/pages/detail/widgets/genre_widget
 import 'package:flutter_movie_app/presentation/viewModels/find_detail_viewmodel.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+// 영화 상세 페이지
 class DetailPage extends StatelessWidget {
-  const DetailPage(this.movieId, {super.key});
+  const DetailPage(this.movieId, this.sortMethod, {super.key});
 
   final int movieId;
+  final String sortMethod;
 
   @override
   Widget build(BuildContext context) {
@@ -23,17 +25,19 @@ class DetailPage extends StatelessWidget {
           return ListView(
             children: [
               // 포스터
-
-              Container(
-                width: double.infinity,
-                height: 550,
-                decoration: BoxDecoration(
-                  color: Colors.blueAccent,
-                  image: DecorationImage(
-                    image: detail.posterPath != null
-                        ? NetworkImage(detail.posterPath!)
-                        : const AssetImage('assets/images/sample_poster.jpg'),
-                    fit: BoxFit.cover,
+              Hero(
+                tag: '$movieId$sortMethod',
+                child: Container(
+                  width: double.infinity,
+                  height: 550,
+                  decoration: BoxDecoration(
+                    color: Colors.blueAccent,
+                    image: DecorationImage(
+                      image: detail.posterPath != null
+                          ? NetworkImage(detail.posterPath!)
+                          : const AssetImage('assets/images/sample_poster.jpg'),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
@@ -119,6 +123,7 @@ class DetailPage extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 12),
+                    // 흥행정보 박스
                     SizedBox(
                       width: double.infinity,
                       height: 80,
@@ -144,7 +149,7 @@ class DetailPage extends StatelessWidget {
                       ),
                     ),
                     const SizedBox(height: 16),
-                    // 배급사
+                    // 배급사 박스
                     CompanyWidget(list: detail.productionCompanies),
                   ],
                 ),

@@ -4,10 +4,16 @@ import 'package:flutter_movie_app/presentation/pages/detail/detail_page.dart';
 
 // 가로 스크롤뷰 영화 리스트
 class MovieList extends StatelessWidget {
-  const MovieList({super.key, required this.title, required this.movieList});
+  const MovieList({
+    super.key,
+    required this.title,
+    required this.movieList,
+    required this.sortMethod,
+  });
 
   final String title;
   final List<Movie> movieList;
+  final String sortMethod;
 
   @override
   Widget build(BuildContext context) {
@@ -16,6 +22,7 @@ class MovieList extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // 제목
           Text(
             title,
             style: const TextStyle(
@@ -42,22 +49,25 @@ class MovieList extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) {
-                          return DetailPage(movieList[index].id);
+                          return DetailPage(movieList[index].id, sortMethod);
                         },
                       ),
                     );
                   },
-                  child: Container(
-                    width: 130,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: Colors.blueAccent,
-                    ),
-                    child: Image(
-                      fit: BoxFit.cover,
-                      image: movieList[index].posterPath != null
-                          ? NetworkImage(movieList[index].posterPath!)
-                          : const AssetImage('assets/images/sample_poster.jpg'),
+                  child: Hero(
+                    tag: '${movieList[index].id}$sortMethod',
+                    child: Container(
+                      width: 130,
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.blueAccent,
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: movieList[index].posterPath != null
+                                ? NetworkImage(movieList[index].posterPath!)
+                                : const AssetImage(
+                                    'assets/images/sample_poster.jpg'),
+                          )),
                     ),
                   ),
                 );

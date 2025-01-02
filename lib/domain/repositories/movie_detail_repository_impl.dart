@@ -17,12 +17,12 @@ class MovieDetailRepositoryImpl implements MovieDetailRepository {
           result.posterPath,
           result.releaseDate,
           result.tagline,
-          double.parse(result.popularity),
-          double.parse(result.voteAverage),
-          int.parse(result.voteCount),
-          int.parse(result.budget),
-          int.parse(result.revenue),
-          int.parse(result.runtime),
+          result.popularity,
+          result.voteAverage,
+          result.voteCount,
+          result.budget,
+          result.revenue,
+          result.runtime,
           result.genres,
           result.productionCompanies);
     }

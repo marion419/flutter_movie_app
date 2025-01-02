@@ -17,14 +17,14 @@ void main() {
     "budget": "budget",
     "revenue": "revenue",
     "runtime": "runtime",
-    "genres": ["a","b","c"],
-    "production_companies": ["a","b","c"]
+    "genres": [{"name": "a"},{"name":"b"}],
+    "production_companies": [{"name": "a"},{"name":"b"}]
     }
 """;
 
     Map<String, dynamic> map = jsonDecode(dummyData);
     MovieDetailDto movieDetailDto = MovieDetailDto.fromJson(map);
     expect(movieDetailDto.title, "title");
-    print(movieDetailDto.genres[0]);
+    print(movieDetailDto.genres[0].name);
   });
 }

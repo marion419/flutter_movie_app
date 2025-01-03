@@ -25,13 +25,15 @@ class CompanyWidget extends StatelessWidget {
             child: Center(
               child: list[index].logoPath != null
                   ? Image(image: NetworkImage(list[index].logoPath!))
-                  : Text(
-                      textAlign: TextAlign.center,
-                      list[index].name,
-                      style: const TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                        color: Colors.black,
+                  : Expanded(
+                      child: Text(
+                        textAlign: TextAlign.center,
+                        list[index].name,
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
+                          color: Colors.black,
+                        ),
                       ),
                     ),
             ),
